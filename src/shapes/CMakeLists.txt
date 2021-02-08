@@ -1,9 +1,12 @@
-# set(SHAPES_LIB_NAME, shapes) # shall be defined in parent dir
+# shall be defined in parent dir
+# TARGET_LIB_SHAPES shapes
+# BLOCK_SEPARATOR
+#
 
 message(${BLOCK_SEPARATOR})
-message("Building ${SHAPES_LIB_NAME} library")
+message("CMake ${TARGET_LIB_SHAPES} library")
 
-add_library(${SHAPES_LIB_NAME}
+add_library(${TARGET_LIB_SHAPES}
   STATIC
     circle.cpp
     circle.hpp
@@ -15,9 +18,10 @@ add_library(${SHAPES_LIB_NAME}
     square.hpp
   )
 
-target_compile_options(${SHAPES_LIB_NAME}
+target_compile_options(${TARGET_LIB_SHAPES}
   PRIVATE
-    ${flags}
-  )
+  ${flags}
+)
+target_compile_features(${TARGET_LIB_SHAPES} PUBLIC cxx_std_17)
 
 message(${BLOCK_SEPARATOR})

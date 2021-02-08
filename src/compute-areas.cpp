@@ -6,7 +6,10 @@
 #include <cstdlib>
 #include <iostream>
 
-int main() {
+int main()
+{
+  std::cout << "C++ language standard: " << __cplusplus << "; 201703L for 2017"
+            << std::endl;
   using namespace geometry;
 
   double radius = 2.5293;
