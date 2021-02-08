@@ -1,4 +1,4 @@
-#include "geometry_rhombus.hpp"
+#include "rhombus.hpp"
 
 namespace geometry {
 namespace area {

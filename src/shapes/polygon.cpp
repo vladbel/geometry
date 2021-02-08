@@ -1,4 +1,4 @@
-#include "geometry_polygon.hpp"
+#include "polygon.hpp"
 
 #define _USE_MATH_DEFINES
 #include <cmath>

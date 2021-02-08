@@ -12,28 +12,14 @@ if(NOT WIN32)
   list(APPEND flags "-Wextra" "-Wpedantic")
 endif()
 
-add_library(geometry
-  STATIC
-    geometry_circle.cpp
-    geometry_circle.hpp
-    geometry_polygon.cpp
-    geometry_polygon.hpp
-    geometry_rhombus.cpp
-    geometry_rhombus.hpp
-    geometry_square.cpp
-    geometry_square.hpp
-  )
-
-target_compile_options(geometry
-  PRIVATE
-    ${flags}
-  )
+add_subdirectory(shapes)
 
 add_executable(compute-areas compute-areas.cpp)
+include_directories(compute-areas, shapes)
 
 target_compile_options(compute-areas
   PRIVATE
     "-fPIC"
   )
 
-target_link_libraries(compute-areas geometry)
+target_link_libraries(compute-areas shapes)

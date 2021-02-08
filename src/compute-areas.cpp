@@ -1,7 +1,7 @@
-#include "geometry_circle.hpp"
-#include "geometry_polygon.hpp"
-#include "geometry_rhombus.hpp"
-#include "geometry_square.hpp"
+#include "circle.hpp"
+#include "polygon.hpp"
+#include "rhombus.hpp"
+#include "square.hpp"
 
 #include <cstdlib>
 #include <iostream>

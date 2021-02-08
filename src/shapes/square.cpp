@@ -1,4 +1,4 @@
-#include "geometry_square.hpp"
+#include "square.hpp"
 
 #include <cmath>
 
