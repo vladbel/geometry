@@ -5,10 +5,22 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(lldb) Launch",
+            "name": "compute-area",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/compute-areas",
+            "args": [],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb"
+        },
+        {
+            "name": "main-sort",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/main-sort",
             "args": [],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",

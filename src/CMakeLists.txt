@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 set(CMAKE_BUILD_TYPE Debug)
 set(TARGET_MAIN_COMPUTE_AREAS compute-areas)
 set(TARGET_LIB_SHAPES shapes)
+set(TARGET_LIB_SORT sort)
+set(TARGET_MAIN_SORT main-sort)
 set(BLOCK_SEPARATOR "------------------------------------------")
 
 message(${BLOCK_SEPARATOR})
@@ -20,6 +22,8 @@ if(NOT WIN32)
   list(APPEND flags "-Wextra" "-Wpedantic")
 endif()
 
+# ----------------------------------------------------
+#
 add_subdirectory(${TARGET_LIB_SHAPES})
 
 add_executable(${TARGET_MAIN_COMPUTE_AREAS} compute-areas.cpp)
@@ -32,5 +36,21 @@ target_compile_options(${TARGET_MAIN_COMPUTE_AREAS}
 target_compile_features(${TARGET_MAIN_COMPUTE_AREAS} PUBLIC cxx_std_17)
 
 target_link_libraries(${TARGET_MAIN_COMPUTE_AREAS} ${TARGET_LIB_SHAPES})
+#-------------------------------------------------------
+
+# ----------------------------------------------------
+#
+add_subdirectory(${TARGET_LIB_SORT})
+add_executable(${TARGET_MAIN_SORT} main-sort.cpp)
+include_directories(${TARGET_MAIN_SORT}, ${TARGET_LIB_SORT})
+
+target_compile_options(${TARGET_MAIN_SORT}
+  PRIVATE
+  "-fPIC"
+)
+target_compile_features(${TARGET_MAIN_SORT} PUBLIC cxx_std_17)
+
+target_link_libraries(${TARGET_MAIN_SORT} ${TARGET_LIB_SORT})
+#-------------------------------------------------------
 
 message(${BLOCK_SEPARATOR})
